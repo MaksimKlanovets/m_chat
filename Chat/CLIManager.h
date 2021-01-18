@@ -1,18 +1,20 @@
 #pragma once
-#include "UserStore.h"
-#include <vector>
+
+#include "SignIn.h"
+#include "SignUp.h"
+#include "CLI.h"
+
+#include <iostream>
+
 class CLIManager
 {
 public:
 	CLIManager();
 	void start();
-	std::string checkName(std::string name);
-	std::string checkLogin(std::string login);
-
 
 private:
-	
-	std::vector<UserStore*> _userStore;
-	
+	SignIn _signIn;
+	SignUp _signUp;
+	CLI* _cli;
 };
 

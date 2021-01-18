@@ -1,14 +1,13 @@
 #pragma once
-#include "UserStore.h"
+#include "BaseApp.h"
+#include <iostream>
+#include <string>
 class SignUp
 {
 public:
-	SignUp();
-	void addName(const std::string name);
-	void addLogin(const std::string login);
-	void addPassword(const std::string password);
-
+	bool startSignUp();
+		
 private:
-	UserData _userData;
+	BaseApp *_baseApp;
 };
 

@@ -1,23 +1,11 @@
 #include "SignUp.h"
 
-SignUp::SignUp()
+bool SignUp::startSignUp()
 {
-	this->_userData = {};
+    std::cout << "¬ведите им€" << std::endl;
+    std::string tempData;
+
+    return false;
 }
 
 
-
-void SignUp::addName(const std::string name)
-{
-	this->_userData.setName(name);
-}
-
-void SignUp::addLogin(const std::string login)
-{
-	this->_userData.setLogin(login);
-}
-
-void SignUp::addPassword(const std::string password)
-{
-	this->_userData.setPassword(password);
-}
