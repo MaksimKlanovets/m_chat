@@ -1,12 +1,13 @@
 #pragma once
-#include "BaseApp.h"
+#include "UserAuth.h"
 #include <iostream>
-class SignUp
+class SignUp:public UserAuth
 {
 public:
 	SignUp();
-	bool startSignUp();
-		
+	bool start() override;
+
+	~SignUp();
 private:
 	BaseApp *_baseApp;
 };

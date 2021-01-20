@@ -8,8 +8,9 @@ public:
 	UserData& operator=(const UserData& copy);
 	UserData() ;
 	UserData(std::string name, std::string login, std::string password);
-	int getId();
+	std::string getName();
 
+	~UserData();
 private:
 	std::string _name;
 	 int _id;

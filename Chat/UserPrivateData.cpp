@@ -23,6 +23,10 @@ UserPrivateData::UserPrivateData(std::string login, std::string password)
 {
 }
 
+UserPrivateData::~UserPrivateData()
+{
+}
+
 //bool UserPrivateData::isUserAuth(std::string login)
 //{
 //	return (_login != login) ? false : true;
