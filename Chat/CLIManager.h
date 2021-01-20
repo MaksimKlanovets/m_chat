@@ -13,8 +13,8 @@ public:
 	void start();
 
 private:
-	SignIn _signIn;
-	SignUp _signUp;
+	SignIn *_signIn;
+	SignUp *_signUp;
 	CLI* _cli;
 };
 
