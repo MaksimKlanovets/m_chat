@@ -27,4 +27,13 @@ UserData::UserData(std::string name, std::string login, std::string password)
 	_id = 0;
 }
 
+std::string UserData::getName()
+{
+	return this->_name;
+}
+
+UserData::~UserData()
+{
+}
+
 

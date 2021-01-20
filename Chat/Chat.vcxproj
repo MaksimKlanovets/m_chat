@@ -152,6 +152,7 @@
     <ClCompile Include="SignIn.cpp" />
     <ClCompile Include="SignUp.cpp" />
     <ClCompile Include="TempStoreForMessages.cpp" />
+    <ClCompile Include="UserAuth.cpp" />
     <ClCompile Include="UserData.cpp" />
     <ClCompile Include="UserPrivateData.cpp" />
     <ClCompile Include="UserStore.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="SignIn.h" />
     <ClInclude Include="SignUp.h" />
     <ClInclude Include="TempStoreForMessages.h" />
+    <ClInclude Include="UserAuth.h" />
     <ClInclude Include="UserData.h" />
     <ClInclude Include="UserPrivateData.h" />
     <ClInclude Include="UserStore.h" />

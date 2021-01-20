@@ -5,7 +5,11 @@ Message::Message()
 	this->_message = {};
 }
 
-//Message::Message(std::string message):
-//	_message(message)
-//{
-//}
+Message::~Message()
+{
+}
+
+Message::Message(std::string message):
+	_message(message)
+{
+}

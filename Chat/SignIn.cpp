@@ -2,12 +2,16 @@
 
 SignIn::SignIn()
 {
-	_baseApp =nullptr;
+	
 }
 
-void SignIn::startSignIn()
+
+
+bool SignIn::start()
 {
-	
-	BaseApp baseApp;
-	baseApp.start();
+	return true;
+}
+
+SignIn::~SignIn()
+{
 }
