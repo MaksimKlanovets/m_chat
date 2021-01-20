@@ -1,10 +1,10 @@
 #pragma once
 #include "BaseApp.h"
 #include <iostream>
-#include <string>
 class SignUp
 {
 public:
+	SignUp();
 	bool startSignUp();
 		
 private:

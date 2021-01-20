@@ -1,10 +1,18 @@
 #pragma once
 #include "UserStore.h"
 #include "TempStoreForMessages.h"
-
+#include <vector>
+#include <string>
 class BaseApp
 {
-	UserStore *_userStore;
-	TempStoreForMessages *_tempStoreForMessages;
+public:
+	BaseApp();
+
+	void start();
+
+private:
+	std::vector<UserStore*> _current;
+	std::vector<TempStoreForMessages*> _tempStoreForMessages;
+
 };
 
