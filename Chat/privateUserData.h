@@ -7,19 +7,18 @@ class PrivateUserData
 {
 public:
 	PrivateUserData();
-	PrivateUserData(string login, string password);
-	PrivateUserData(string name, string login, string password);
+	PrivateUserData(const string &login, const string &password);
+	PrivateUserData(const string& name, const string& login, const string& password);
 	PrivateUserData& operator=(const PrivateUserData&);
 	string getName();
 	string getLogin();
 	string getPassword();
-	void setName(string );
-	void setLogin(string);
-	void setPassword(string);
+	void setName(const string &);
+	void setLogin(const string&);
+	void setPassword(const string&);
 
-	string writeTempName();
-	string writeTempLogin();
-	string writeTempPassword();
+	
+
 private:
 	string _name;
 	string _login;

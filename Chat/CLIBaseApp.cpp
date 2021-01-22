@@ -1,5 +1,6 @@
 #include "CLIBaseApp.h"
-
+#include "CLIprivataUserData.h"
+#include "CLImessage.h"
 
 CLIBaseApp::CLIBaseApp()
 {
@@ -11,20 +12,18 @@ void CLIBaseApp::signIn()
 	_baseApp = BaseApp::instance();
 
 	CLIBaseApp cliBaseApp;
+	CLIprivataUserData cliPrivateData;
+	CLI* cli = &cliBaseApp;
 	
-
 	PrivateUserData privateUserData;
-	privateUserData.setName(privateUserData.writeTempName());
-	privateUserData.setLogin(privateUserData.writeTempLogin());
-	privateUserData.setPassword(privateUserData.writeTempPassword());
-
-
+	privateUserData.setLogin(cliPrivateData.writeTempLogin());
+	privateUserData.setPassword(cliPrivateData.writeTempPassword());
 
 	UserData* userData = _baseApp->authUser(privateUserData);;
 
 	do
 	{
-		cliBaseApp.help();
+		cli->help();
 
 		unsigned int choice{};
 		cin >> choice;
@@ -39,26 +38,20 @@ void CLIBaseApp::signIn()
 			break;
 		case 2:
 		{
-			string tempLogin{};
-			cout << "Введите логин пользователя для отправки смс-> " << endl;
-			getline(cin, tempLogin);
+			CLIprivataUserData cliPrivateUserData;
+			string tempLogin = cliPrivateUserData.writeTempLogin();
 
-			string tempMessage{};
-			cout << "Введите логин пользователя для отправки смс-> " << endl;
-			getline(cin, tempMessage);
+			CLImessage cliMessage;
+			string tempMessage = cliMessage.writeTempMessage();;
 
 			_baseApp->sentMessage(tempLogin, tempMessage);
 		}
 		break;
 		case 3:
 		{
-			string tempLogin{};
-			cout << "Введите логин пользователя для отправки смс-> " << endl;
+			CLImessage cliMessage;
 
-			getline(cin, tempLogin);
-
-			string tempMessage{};
-			cout << "Введите логин пользователя для отправки смс-> " << endl;
+			string tempMessage = cliMessage.writeTempMessage();;
 			getline(cin, tempMessage);
 
 			_baseApp->sentMessageToAll(tempMessage);
@@ -69,9 +62,6 @@ void CLIBaseApp::signIn()
 			break;
 		}
 	} while (true);
-
-
-
 }
 
 void CLIBaseApp::signUp()
@@ -79,24 +69,22 @@ void CLIBaseApp::signUp()
 	_baseApp = BaseApp::instance();
 
 	CLIBaseApp cliBaseApp;
+	CLIprivataUserData cliPrivareData;
 
 	PrivateUserData privateUserData;
-	privateUserData.setName(privateUserData.writeTempName());
-	privateUserData.setLogin(privateUserData.writeTempLogin());
-	privateUserData.setPassword(privateUserData.writeTempPassword());
-
-	// создать пользователя передать в параметры далее
+	privateUserData.setName(cliPrivareData.writeTempName());
+	privateUserData.setLogin(cliPrivareData.writeTempLogin());
+	privateUserData.setPassword(cliPrivareData.writeTempPassword());
 
 	_baseApp->addUser(privateUserData);
 
 	UserData* userData = _baseApp->authUser(privateUserData);;
 
+	CLI* cli = &cliBaseApp;
 
 	while (true)
 	{
-		
-		cliBaseApp.help();
-
+		cli->help();
 
 		unsigned int choice{};
 		cin >> choice;
@@ -111,13 +99,11 @@ void CLIBaseApp::signUp()
 			break;
 		case 2:
 		{
-			string tempLogin{};
-			cout << "Введите логин пользователя для отправки смс-> " << endl;
-			getline(cin, tempLogin);
+			CLIprivataUserData cliPrivateUserData;
+			string tempLogin = cliPrivateUserData.writeTempLogin();
 
-			string tempMessage{};
-			cout << "Введите смс -> " << endl;
-			getline(cin, tempMessage);
+			CLImessage cliMessage;
+			string tempMessage = cliMessage.writeTempMessage();;
 
 			if (!_baseApp->sentMessage(tempLogin, tempMessage))
 			{
@@ -130,7 +116,14 @@ void CLIBaseApp::signUp()
 		}
 		break;
 		case 3:
-			break;
+		{
+			CLImessage cliMessage;
+
+			string tempMessage = cliMessage.writeTempMessage();;
+
+			_baseApp->sentMessageToAll(tempMessage);
+		}
+		break;
 		default:
 			cout << "Некорректный ввод" << endl;
 			break;

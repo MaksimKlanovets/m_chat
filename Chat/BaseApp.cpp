@@ -25,7 +25,7 @@ void BaseApp::addUser(UserData userData)
 	_userData.push_back(tempUserData) ;
 }
 
-UserData* BaseApp::authUser(UserData userData)
+ UserData* BaseApp::authUser( UserData userData)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
@@ -36,16 +36,10 @@ UserData* BaseApp::authUser(UserData userData)
 		}
 		return &_userData[i];
 	}
-	
 	throw "Ошибка логина или пароля";
-
 }
 
-
-
-
-
-bool BaseApp::sentMessage(string login,string message)
+bool BaseApp::sentMessage(const string &login,const string &message)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
@@ -58,7 +52,7 @@ bool BaseApp::sentMessage(string login,string message)
 	return true;
 }
 
-bool BaseApp::isLoginAuth(string login)
+bool BaseApp::isLoginAuth(const string &login)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
@@ -72,23 +66,20 @@ bool BaseApp::isLoginAuth(string login)
 	return false;
 }
 
-void BaseApp::sentMessageToAll(string message)
+void BaseApp::sentMessageToAll(const string &message)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
 		_userData[i].setMessage(message);
 	}
-	
 }
 
 BaseApp::BaseApp()
 {
-	
 }
 
 BaseApp& BaseApp::operator=(const BaseApp&)
 {
-	
 	return *this;
 }
 

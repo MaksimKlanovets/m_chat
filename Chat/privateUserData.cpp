@@ -7,13 +7,13 @@ PrivateUserData::PrivateUserData()
 	_password = {};
 }
 
-PrivateUserData::PrivateUserData(string login, string password):PrivateUserData()
+PrivateUserData::PrivateUserData(const string &login,const  string& password):PrivateUserData()
 {
 	_login = login;
 	_password = password;
 }
 
-PrivateUserData::PrivateUserData(string name, string login, string password):PrivateUserData(login,password)
+PrivateUserData::PrivateUserData(const string &name, const string &login, const string &password):PrivateUserData(login,password)
 {
 	_name = name;
 }
@@ -45,41 +45,19 @@ string PrivateUserData::getPassword()
 	return _password;
 }
 
-void PrivateUserData::setName(string name)
+void PrivateUserData::setName(const string& name)
 {
 	_name = name;
 }
 
-void PrivateUserData::setLogin(string login)
+void PrivateUserData::setLogin(const string& login)
 {
 	_login = login;
 }
 
-void PrivateUserData::setPassword(string password)
+void PrivateUserData::setPassword(const string& password)
 {
 	_password = password;
 }
 
-string PrivateUserData::writeTempName()
-{
-	string n{};
-		cout << "¬ведите »м€" << endl;
-		cin >> n;
-		return n;
-}
 
-string PrivateUserData::writeTempLogin()
-{
-	string l{};
-		cout << "¬ведите логин" << endl;
-		cin >> l;
-		return l;
-}
-
-string PrivateUserData::writeTempPassword()
-{
-	string p{};
-		cout << "¬ведите пароль" << endl;
-		cin >> p;
-		return p;
-}

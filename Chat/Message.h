@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
+
 class Message
 {
 public:
-	Message(std::string);
-
+	Message();
+	Message(const std::string&);
 	std::string getMessage();
 
 private:
