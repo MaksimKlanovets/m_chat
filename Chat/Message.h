@@ -3,9 +3,10 @@
 class Message
 {
 public:
-	Message();
-	Message(std::string message);
-	~Message();
+	Message(std::string);
+
+	std::string getMessage();
+
 private:
 	std::string _message;
 };
