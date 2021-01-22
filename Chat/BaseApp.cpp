@@ -11,26 +11,26 @@ BaseApp* BaseApp::instance()
 	return _instance;
 }
 
-void BaseApp::addUser(std::string name, std::string login, std::string password)
+void BaseApp::addUser(UserData userData)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
-		if (_userData[i].getLogin() != login)
+		if (_userData[i].getLogin() != userData.getLogin())
 		{
 			continue;
 		}
 		throw "пользователь под данным логином уже зарегистрирован";
 	}
-	UserData userData(name, login, password);
-	_userData.push_back(userData) ;
+	UserData tempUserData = userData;
+	_userData.push_back(tempUserData) ;
 }
 
-UserData* BaseApp::authUser(std::string login, std::string password)
+UserData* BaseApp::authUser(UserData userData)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
-		if (_userData[i].getLogin() != login &&
-			_userData[i].getPassword() != password)
+		if (_userData[i].getLogin() != userData.getLogin() &&
+			_userData[i].getPassword() != userData.getPassword())
 		{
 			continue;
 		}
@@ -42,13 +42,7 @@ UserData* BaseApp::authUser(std::string login, std::string password)
 }
 
 
-void BaseApp::pringData()
-{
-	for (size_t i = 0; i < _userData.size(); i++)
-	{
-		std::cout << _userData[i];
-	}
-}
+
 
 
 bool BaseApp::sentMessage(string login,string message)
@@ -62,6 +56,29 @@ bool BaseApp::sentMessage(string login,string message)
 		if (!_userData[i].setMessage(message)) { return false; }
 	}
 	return true;
+}
+
+bool BaseApp::isLoginAuth(string login)
+{
+	for (size_t i = 0; i < _userData.size(); i++)
+	{
+		if (_userData[i].getLogin() != login)
+		{
+			continue;
+		}
+		
+		return true;
+	}
+	return false;
+}
+
+void BaseApp::sentMessageToAll(string message)
+{
+	for (size_t i = 0; i < _userData.size(); i++)
+	{
+		_userData[i].setMessage(message);
+	}
+	
 }
 
 BaseApp::BaseApp()

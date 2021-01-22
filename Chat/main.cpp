@@ -1,5 +1,6 @@
 #include "BaseApp.h"
 #include "CLI.h"
+#include "CLIBaseApp.h"
 #include <iostream>
 
 int main()
@@ -7,14 +8,17 @@ int main()
 	
 	setlocale(LC_ALL, "ru");
 	BaseApp *baseApp = BaseApp::instance();
-	CLI cli;
-
+	CLIBaseApp  cliBaseApp;
+	CLI *cli = &cliBaseApp;
+	cout << "Для завершения работы программы 0 " << endl;
 	do
 	{
 		cout << "Для входа нажмите 1" << endl;
 		cout << "Для регистрации нажмите 2" << endl;
+		
 		unsigned int choice = {};
 		cin >> choice;
+		cin.ignore(32767, '\n');
 		if (choice == 0) { break; }
 		try
 		{
@@ -22,12 +26,12 @@ int main()
 			{
 			case 1:
 			{
-				cli.signIn();
+				cliBaseApp.signIn();
 				break;
 			}
 			case 2:
 			{
-				cli.signUp();
+				cliBaseApp.signUp();
 				break;
 			}
 			default:

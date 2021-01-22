@@ -9,11 +9,13 @@ public:
 	static BaseApp* instance();
 	
 
-	void addUser(std::string name, std::string login, std::string password);
-	UserData *authUser(std::string login,std::string password);
-
+	void addUser(UserData userData);
+	UserData *authUser(UserData userData);
 	void pringData();
+	void sentMessageToAll(string message);
 	bool sentMessage(string login, string message);
+	bool isLoginAuth(string login);
+	
 	~BaseApp() = delete;
 private:
 	
