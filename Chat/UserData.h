@@ -3,6 +3,7 @@
 #include <iostream>
 #include"message.h"
 #include <vector>
+#include "privateUserData.h"
 using namespace std;
 class UserData
 {
@@ -10,20 +11,17 @@ public:
 	UserData& operator=(const UserData& copy);
 
 	UserData();
-
-	UserData(std::string name, std::string login, std::string password);
+	UserData(const UserData& copy);
+	UserData(PrivateUserData privateUserData);
 	string getLogin();
 	string getPassword();
 	string getName();
+	
 	bool setMessage(string);
 	void printMessage();
 
-	friend std::ostream& operator<<(std::ostream& out, const UserData& userData);
 private:
-	string _name;
-	string _password;
-	string _login;
-
+	PrivateUserData _privateUserData;
 	vector<Message> _messages;
 	
 };

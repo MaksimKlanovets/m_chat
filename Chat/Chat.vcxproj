@@ -141,14 +141,18 @@
   <ItemGroup>
     <ClCompile Include="BaseApp.cpp" />
     <ClCompile Include="CLI.cpp" />
+    <ClCompile Include="CLIBaseApp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="message.cpp" />
+    <ClCompile Include="privateUserData.cpp" />
     <ClCompile Include="UserData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApp.h" />
     <ClInclude Include="CLI.h" />
+    <ClInclude Include="CLIBaseApp.h" />
     <ClInclude Include="message.h" />
+    <ClInclude Include="privateUserData.h" />
     <ClInclude Include="UserData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
