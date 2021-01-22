@@ -2,5 +2,4 @@
 
 CLI::CLI()
 {
-	_baseApp = nullptr;
 }

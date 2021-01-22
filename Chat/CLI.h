@@ -9,7 +9,7 @@ public:
 	virtual void help() = 0;
 
 private:
-	BaseApp* _baseApp;
+	
 };
 
 

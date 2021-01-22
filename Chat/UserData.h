@@ -12,12 +12,12 @@ public:
 
 	UserData();
 	UserData(const UserData& copy);
-	UserData(PrivateUserData privateUserData);
-	string getLogin();
-	string getPassword();
-	string getName();
+	UserData( PrivateUserData const &privateUserData);
+	const string getLogin();
+	const string getPassword();
+	const string getName();
 	
-	bool setMessage(string);
+	bool setMessage(const string&);
 	void printMessage();
 
 private:

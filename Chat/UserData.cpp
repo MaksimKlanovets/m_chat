@@ -26,27 +26,27 @@ UserData::UserData(const UserData& copy)
 
 
 
-UserData::UserData(PrivateUserData privateUserData)
+UserData::UserData( PrivateUserData const &privateUserData)
 {
 	_privateUserData = privateUserData;
 }
 
-std::string UserData::getLogin()
+const std::string UserData::getLogin()
 {
 	return _privateUserData.getLogin();
 }
 
-std::string UserData::getPassword()
+const std::string UserData::getPassword()
 {
 	return _privateUserData.getPassword();
 }
 
-std::string UserData::getName()
+const std::string UserData::getName()
 {
 	return _privateUserData.getName();
 }
 
-bool UserData::setMessage(string message)
+ bool UserData::setMessage(const string &message)
 {
 	_messages.push_back(message);
 	return 0;
