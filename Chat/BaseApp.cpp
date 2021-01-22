@@ -11,46 +11,80 @@ BaseApp* BaseApp::instance()
 	return _instance;
 }
 
+void BaseApp::addUser(std::string name, std::string login, std::string password)
+{
+	for (size_t i = 0; i < _userData.size(); i++)
+	{
+		if (_userData[i].getLogin() != login)
+		{
+			continue;
+		}
+		throw "пользователь под данным логином уже зарегистрирован";
+	}
+	UserData userData(name, login, password);
+	_userData.push_back(userData) ;
+}
+
+UserData* BaseApp::authUser(std::string login, std::string password)
+{
+	for (size_t i = 0; i < _userData.size(); i++)
+	{
+		if (_userData[i].getLogin() != login &&
+			_userData[i].getPassword() != password)
+		{
+			continue;
+		}
+		return &_userData[i];
+	}
+	
+	throw "Ошибка логина или пароля";
+
+}
+
+
+void BaseApp::pringData()
+{
+	for (size_t i = 0; i < _userData.size(); i++)
+	{
+		std::cout << _userData[i];
+	}
+}
+
+
+bool BaseApp::sentMessage(string login,string message)
+{
+	for (size_t i = 0; i < _userData.size(); i++)
+	{
+		if (_userData[i].getLogin() != login)
+		{
+			continue;
+		}
+		if (!_userData[i].setMessage(message)) { return false; }
+	}
+	return true;
+}
+
 BaseApp::BaseApp()
 {
-	
-	this->_current = {};
-	this->_tempStoreForMessages = {};
 	
 }
 
 BaseApp& BaseApp::operator=(const BaseApp&)
 {
+	
 	return *this;
 }
 
-void BaseApp::addUser(std::string name, std::string login, std::string password)
-{
-	UserStore userStore(name, login, password);
-	this->_current.push_back(userStore);
-}
-
-BaseApp* BaseApp::ptrBase()
-{
-	
-	return this;
-}
 
 
 
-void BaseApp::runBaseApp()
-{
-	std::string choise = "";
-		
-}
 
-void BaseApp::printDataTest()
-{
-	for (auto i = 0; i < _current.size(); i++)
-	{
-		_current[i].printUserData();
-	}
-}
+
+
+
+
+
+
 
 
 

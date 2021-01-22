@@ -6,8 +6,7 @@ UserData& UserData::operator=(const UserData& copy)
 {
 	if (this == &copy) { return *this; }
 	this->_name = copy._name;
-	this->_id = copy._id;
-	this->_userPrivateData = copy._userPrivateData;
+	
 	return *this;
 }
 
@@ -15,25 +14,54 @@ UserData& UserData::operator=(const UserData& copy)
 
 UserData::UserData()
 {
-	this->_id = {};
-	this->_name = {};
-	this->_userPrivateData = {};
+	_name = {};
+	_login = {};
+	_password = {};
 }
 
 UserData::UserData(std::string name, std::string login, std::string password)
 {
-	UserPrivateData userPrivateData(login, password);
-	this->_name = name;
-	_id = 0;
+	_name = name;
+	_login = login;
+	_password = password;
+}
+
+std::string UserData::getLogin()
+{
+	return _login;
+}
+
+std::string UserData::getPassword()
+{
+	return _password;
 }
 
 std::string UserData::getName()
 {
-	return this->_name;
+	return _name;
 }
 
-UserData::~UserData()
+bool UserData::setMessage(string message)
 {
+	_messages.push_back(message);
+	return 0;
+	
+}
+
+void UserData::printMessage()
+{
+	for (size_t i = 0; i < _messages.size(); i++)
+	{
+		cout << _messages[i].getMessage() << endl;
+	}
+	_messages.clear();
 }
 
 
+
+std::ostream& operator<<(std::ostream& out, const UserData& userData)
+{
+	std::cout << "name	 " << userData._name << "\npassword	 " << userData._password <<
+		"\nlogin	" << userData._login << std::endl;
+	return out;
+}

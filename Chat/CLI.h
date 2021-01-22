@@ -1,6 +1,12 @@
 #pragma once
+#include "BaseApp.h"
+using namespace std;
 class CLI
 {
-	virtual void help() = 0;
+public:
+	void signIn();
+	void signUp();
+private:
+	BaseApp* _baseApp;
 };
 

@@ -1,15 +1,12 @@
-#include "Message.h"
+#include "message.h"
 
-Message::Message()
-{
-	this->_message = {};
-}
-
-Message::~Message()
+Message::Message(std::string message):_message(message)
 {
 }
 
-Message::Message(std::string message):
-	_message(message)
+std::string Message::getMessage()
 {
+	return _message;
 }
+
+

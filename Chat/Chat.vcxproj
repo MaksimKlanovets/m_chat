@@ -141,39 +141,15 @@
   <ItemGroup>
     <ClCompile Include="BaseApp.cpp" />
     <ClCompile Include="CLI.cpp" />
-    <ClCompile Include="CLIBase.cpp" />
-    <ClCompile Include="CLIBegin.cpp" />
-    <ClCompile Include="CLIExit.cpp" />
-    <ClCompile Include="CLIManager.cpp" />
-    <ClCompile Include="CLISignIn.cpp" />
-    <ClCompile Include="CLISingUp.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Message.cpp" />
-    <ClCompile Include="SignIn.cpp" />
-    <ClCompile Include="SignUp.cpp" />
-    <ClCompile Include="TempStoreForMessages.cpp" />
-    <ClCompile Include="UserAuth.cpp" />
+    <ClCompile Include="message.cpp" />
     <ClCompile Include="UserData.cpp" />
-    <ClCompile Include="UserPrivateData.cpp" />
-    <ClCompile Include="UserStore.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApp.h" />
     <ClInclude Include="CLI.h" />
-    <ClInclude Include="CLIBase.h" />
-    <ClInclude Include="CLIBegin.h" />
-    <ClInclude Include="CLIExit.h" />
-    <ClInclude Include="CLIManager.h" />
-    <ClInclude Include="CLISignIn.h" />
-    <ClInclude Include="CLISingUp.h" />
-    <ClInclude Include="Message.h" />
-    <ClInclude Include="SignIn.h" />
-    <ClInclude Include="SignUp.h" />
-    <ClInclude Include="TempStoreForMessages.h" />
-    <ClInclude Include="UserAuth.h" />
+    <ClInclude Include="message.h" />
     <ClInclude Include="UserData.h" />
-    <ClInclude Include="UserPrivateData.h" />
-    <ClInclude Include="UserStore.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
