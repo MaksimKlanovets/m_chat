@@ -20,8 +20,6 @@ UserData::UserData()
 UserData::UserData(const UserData& copy)
 {
 	_privateUserData = copy._privateUserData;
-
-
 }
 
 
@@ -48,7 +46,9 @@ const std::string UserData::getName()
 
  bool UserData::setMessage(const string &message)
 {
-	_messages.push_back(message);
+	 Message mes(_privateUserData.getLogin(), message);
+
+	_messages.push_back(mes);
 	return 0;
 	
 }
@@ -57,7 +57,8 @@ void UserData::printMessage()
 {
 	for (size_t i = 0; i < _messages.size(); i++)
 	{
-		cout << _messages[i].getMessage() << endl;
+		cout <<  "User "<< _messages[i].getLogin() << " " <<_messages[i].getTime() ;
+		cout << _messages[i].getMessage() << endl << endl;
 	}
 	_messages.clear();
 }
