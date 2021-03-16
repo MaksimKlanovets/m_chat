@@ -72,6 +72,7 @@ void CLIBaseApp::signUp()
 	CLIprivataUserData cliPrivareData;
 
 	PrivateUserData privateUserData;
+	//записываем временно данные по пользователю 
 	privateUserData.setName(cliPrivareData.writeTempName());
 	privateUserData.setLogin(cliPrivareData.writeTempLogin());
 	privateUserData.setPassword(cliPrivareData.writeTempPassword());

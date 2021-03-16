@@ -4,7 +4,7 @@
 class CLI
 {
 public:
-	CLI();
+	//CLI();
 	
 	virtual void help() = 0;
 

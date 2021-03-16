@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 class PrivateUserData
@@ -21,8 +22,8 @@ public:
 
 private:
 	string _name;
-	string _login;
-	string _password;
+	pair<string, string> _pData;
+	
 	
 
 };

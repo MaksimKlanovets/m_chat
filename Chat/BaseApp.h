@@ -2,7 +2,7 @@
 #include "UserData.h"
 #include <vector>
 #include <string>
-
+#include <unordered_set>
 class BaseApp
 {
 public:
@@ -20,7 +20,6 @@ private:
 	BaseApp(const BaseApp&);
 	BaseApp& operator=(const BaseApp&);
 	static BaseApp* _instance;
-	
 	std::vector <UserData> _userData;
 };
 

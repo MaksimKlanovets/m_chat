@@ -2,12 +2,14 @@
 #include "CLI.h"
 #include "CLIBaseApp.h"
 #include <iostream>
-
+#include <ctime>
 int main()
 {
 	
 	setlocale(LC_ALL, "ru");
+	//создание базы на основе singelton
 	BaseApp *baseApp = BaseApp::instance();
+
 	CLIBaseApp  cliBaseApp;
 	CLI *cli = &cliBaseApp;
 	cout << "Для завершения работы программы 0 " << endl;
