@@ -13,11 +13,8 @@ public:
 	const char* getTime() const;
 
 private:
-
 	pair<string, string> _data;
-	//time
-	char* dt;
-
+	char* _dt;
 	std::string _message;
 };
 

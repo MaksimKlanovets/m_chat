@@ -1,7 +1,5 @@
 #include "UserData.h"
 
-
-
 UserData& UserData::operator=(const UserData& copy)
 {
 	if (this == &copy) { return *this; }
@@ -9,8 +7,6 @@ UserData& UserData::operator=(const UserData& copy)
 	
 	return *this;
 }
-
-
 
 UserData::UserData()
 {
@@ -22,35 +18,32 @@ UserData::UserData(const UserData& copy)
 	_privateUserData = copy._privateUserData;
 }
 
-
-
 UserData::UserData( PrivateUserData const &privateUserData)
 {
 	_privateUserData = privateUserData;
 }
 
-const std::string UserData::getLogin()
+const string UserData::getLogin()const
 {
 	return _privateUserData.getLogin();
 }
 
-const std::string UserData::getPassword()
+const string UserData::getPassword()const
 {
 	return _privateUserData.getPassword();
 }
 
-const std::string UserData::getName()
+const string UserData::getName() const
 {
 	return _privateUserData.getName();
 }
 
- bool UserData::setMessage(const string &message)
+ bool UserData::setMessage(UserData *userData, const string &message)
 {
-	 Message mes(_privateUserData.getLogin(), message);
-
+	 Message mes(userData->getLogin(), message);
 	_messages.push_back(mes);
+
 	return 0;
-	
 }
 
 void UserData::printMessage()
@@ -61,6 +54,11 @@ void UserData::printMessage()
 		cout << _messages[i].getMessage() << endl << endl;
 	}
 	_messages.clear();
+}
+
+const size_t UserData::getSizeArMes() const
+{
+	return _messages.size();
 }
 
 

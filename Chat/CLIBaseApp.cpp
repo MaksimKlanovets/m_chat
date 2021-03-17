@@ -16,6 +16,7 @@ void CLIBaseApp::signIn()
 	CLI* cli = &cliBaseApp;
 	
 	PrivateUserData privateUserData;
+
 	privateUserData.setLogin(cliPrivateData.writeTempLogin());
 	privateUserData.setPassword(cliPrivateData.writeTempPassword());
 
@@ -23,6 +24,11 @@ void CLIBaseApp::signIn()
 
 	do
 	{
+		if (userData->getSizeArMes())
+			cout << "¬ход€щий сообщений " << userData->getSizeArMes() << endl;
+		else
+			cout << "¬ход€щий сообщений нет " << endl;
+
 		cli->help();
 
 		unsigned int choice{};

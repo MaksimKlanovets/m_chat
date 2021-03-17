@@ -5,7 +5,8 @@
 #include <ctime>
 int main()
 {
-	
+
+
 	setlocale(LC_ALL, "ru");
 	//создание базы на основе singelton
 	BaseApp *baseApp = BaseApp::instance();

@@ -10,15 +10,14 @@ public:
 	PrivateUserData();
 	PrivateUserData(const string &login, const string &password);
 	PrivateUserData(const string& name, const string& login, const string& password);
+
 	PrivateUserData& operator=(const PrivateUserData&);
-	string getName();
-	string getLogin();
-	string getPassword();
+	const string getName()const;
+	const string getLogin() const;
+	const string getPassword() const;
 	void setName(const string &);
 	void setLogin(const string&);
 	void setPassword(const string&);
-
-	
 
 private:
 	string _name;

@@ -18,9 +18,6 @@
     <ClCompile Include="..\BaseApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\CLI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\CLIBaseApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
