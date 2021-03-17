@@ -31,8 +31,5 @@ const string CLIprivataUserData::writeTempPassword()
 
 void CLIprivataUserData::help()
 {
-	cout << "1-> получить смс" << endl;
-	cout << "2-> отправить пользователю" << endl;
-	cout << "3-> отправить всем пользователям" << endl;
-	cout << "0-> выйти из учетной записи" << endl;
+	
 }

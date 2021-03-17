@@ -34,6 +34,7 @@ void BaseApp::addUser(UserData userData)
 		{
 			continue;
 		}
+		_current = &_userData[i];
 		return &_userData[i];
 	}
 	throw "Ошибка логина или пароля";
@@ -47,7 +48,7 @@ bool BaseApp::sentMessage(const string &login,const string &message)
 		{
 			continue;
 		}
-		if (!_userData[i].setMessage(message)) { return false; }
+		if (!_userData[i].setMessage(_current,message)) { return false; }
 	}
 	return true;
 }
@@ -60,17 +61,16 @@ bool BaseApp::isLoginAuth(const string &login)
 		{
 			continue;
 		}
-		
 		return true;
 	}
 	return false;
 }
-
+//нужно дораборать 
 void BaseApp::sentMessageToAll(const string &message)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
-		_userData[i].setMessage(message);
+		_userData[i].setMessage(_current,message);
 	}
 }
 

@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\BaseApp.cpp" />
-    <ClCompile Include="..\CLI.cpp" />
     <ClCompile Include="..\CLIBaseApp.cpp" />
     <ClCompile Include="..\CLImessage.cpp" />
     <ClCompile Include="..\CLIprivataUserData.cpp" />

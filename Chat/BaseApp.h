@@ -20,6 +20,7 @@ private:
 	BaseApp(const BaseApp&);
 	BaseApp& operator=(const BaseApp&);
 	static BaseApp* _instance;
-	std::vector <UserData> _userData;
+	std::vector <UserData> _userData = {};
+	UserData *_current = {};
 };
 
