@@ -1,6 +1,5 @@
 #include "message.h"
 
-
 Message::Message()
 {
 	_message = {};

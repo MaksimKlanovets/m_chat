@@ -1,6 +1,6 @@
-#include "BaseApp.h"
-#include "CLI.h"
-#include "CLIBaseApp.h"
+#include "baseApp.h"
+#include "cli.h"
+#include "cliBaseApp.h"
 #include <iostream>
 #include <ctime>
 int main()
@@ -13,11 +13,11 @@ int main()
 
 	CLIBaseApp  cliBaseApp;
 	CLI *cli = &cliBaseApp;
-	cout << "Для завершения работы программы 0 " << endl;
+	cout << "To terminate the program 0 " << endl;
 	do
 	{
-		cout << "Для входа нажмите 1" << endl;
-		cout << "Для регистрации нажмите 2" << endl;
+		cout << "Sign in 1" << endl;
+		cout << "Sign up 2" << endl;
 		
 		unsigned int choice = {};
 		cin >> choice;
@@ -38,7 +38,7 @@ int main()
 				break;
 			}
 			default:
-				cout << "Некорректный ввод" << endl;
+				cout << "wrong input" << endl;
 				break;
 			}
 		}

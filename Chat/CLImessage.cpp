@@ -1,4 +1,4 @@
-#include "CLImessage.h"
+#include "climessage.h"
 
 void CLImessage::help()
 {
