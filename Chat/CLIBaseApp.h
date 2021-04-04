@@ -1,6 +1,6 @@
 #pragma once
-#include "BaseApp.h"
-#include "CLI.h"
+#include "baseApp.h"
+#include "cli.h"
 using namespace std;
 class CLIBaseApp:public CLI
 {

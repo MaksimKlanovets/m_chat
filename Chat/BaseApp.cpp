@@ -1,4 +1,4 @@
-#include "BaseApp.h"
+#include "baseApp.h"
 #include <iostream>
 
 BaseApp* BaseApp::_instance = 0;

@@ -1,6 +1,6 @@
-#include "CLIBaseApp.h"
-#include "CLIprivataUserData.h"
-#include "CLImessage.h"
+#include "cliBaseApp.h"
+#include "cliprivataUserData.h"
+#include "climessage.h"
 
 CLIBaseApp::CLIBaseApp()
 {

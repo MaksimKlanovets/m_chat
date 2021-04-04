@@ -15,54 +15,54 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\BaseApp.cpp">
+    <ClCompile Include="..\baseApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\CLIBaseApp.cpp">
+    <ClCompile Include="..\cliBaseApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\CLImessage.cpp">
+    <ClCompile Include="..\climessage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\CLIprivataUserData.cpp">
+    <ClCompile Include="..\cliprivataUserData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Message.cpp">
+    <ClCompile Include="..\message.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\privateUserData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\UserData.cpp">
+    <ClCompile Include="..\userData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\BaseApp.h">
+    <ClInclude Include="..\baseApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\CLI.h">
+    <ClInclude Include="..\cli.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\CLIBaseApp.h">
+    <ClInclude Include="..\cliBaseApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\CLImessage.h">
+    <ClInclude Include="..\climessage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\CLIprivataUserData.h">
+    <ClInclude Include="..\cliprivataUserData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Message.h">
+    <ClInclude Include="..\message.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\privateUserData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\UserData.h">
+    <ClInclude Include="..\userData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

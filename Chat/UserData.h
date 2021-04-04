@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include"message.h"
+#include "message.h"
 #include <vector>
 #include "privateUserData.h"
 using namespace std;
