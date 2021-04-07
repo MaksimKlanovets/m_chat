@@ -8,16 +8,21 @@ int main()
 
 
 	setlocale(LC_ALL, "ru");
-	//создание базы на основе singelton
+	//singelton
 	BaseApp *baseApp = BaseApp::instance();
-
+	//read private data from file
+	baseApp->readUsersFromFile();
+	//read history from file
+	baseApp->readHistoryMes();
 	CLIBaseApp  cliBaseApp;
 	CLI *cli = &cliBaseApp;
-	cout << "To terminate the program 0 " << endl;
+	
+
+	
 	do
 	{
-		cout << "Sign in 1" << endl;
-		cout << "Sign up 2" << endl;
+		cli->help();
+		
 		
 		unsigned int choice = {};
 		cin >> choice;

@@ -1,4 +1,4 @@
-#include "climessage.h"
+#include "cliMessage.h"
 
 void CLImessage::help()
 {
@@ -7,7 +7,7 @@ void CLImessage::help()
 const string CLImessage::writeTempMessage()
 {
 	string t{};
-	cout << "¬ведите сообщение-> " << endl;
+	cout << "Enter your message-> " << endl;
 	getline(cin, t);
 	return t;
 }

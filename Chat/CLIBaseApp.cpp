@@ -1,6 +1,6 @@
 #include "cliBaseApp.h"
-#include "cliprivataUserData.h"
-#include "climessage.h"
+#include "cliPrivateUserData.h"
+#include "cliMessage.h"
 
 CLIBaseApp::CLIBaseApp()
 {
@@ -12,22 +12,23 @@ void CLIBaseApp::signIn()
 	_baseApp = BaseApp::instance();
 
 	CLIBaseApp cliBaseApp;
-	CLIprivataUserData cliPrivateData;
-	CLI* cli = &cliBaseApp;
+	CLIprivataUserData cliPrivateUserData;
+	CLI* cli = &cliPrivateUserData;
 	
 	PrivateUserData privateUserData;
 
-	privateUserData.setLogin(cliPrivateData.writeTempLogin());
-	privateUserData.setPassword(cliPrivateData.writeTempPassword());
+	privateUserData.setLogin(cliPrivateUserData.writeTempLogin());
+	privateUserData.setPassword(cliPrivateUserData.writeTempPassword());
 
 	UserData* userData = _baseApp->authUser(privateUserData);;
 
 	do
 	{
-		if (userData->getSizeArMes())
-			cout << "Входящий сообщений " << userData->getSizeArMes() << endl;
+		//need create folder sent and receive for correct print 
+		/*if (userData->getSizeArMes())
+			cout << "Incoming messages " << userData->getSizeArMes() << endl;
 		else
-			cout << "Входящий сообщений нет " << endl;
+			cout << "No incoming messages " << endl;*/
 
 		cli->help();
 
@@ -49,8 +50,19 @@ void CLIBaseApp::signIn()
 
 			CLImessage cliMessage;
 			string tempMessage = cliMessage.writeTempMessage();;
+			//sent and write to receiver
+			 const Message *sentM = _baseApp->sentMessage(tempLogin, tempMessage);
 
-			_baseApp->sentMessage(tempLogin, tempMessage);
+			if (sentM)
+			{
+				cout << "Message delivered" << endl;
+				//write messages to file sender
+				_baseApp->writeMessageToFile(_baseApp->getCurrent()->getLogin(),*sentM);
+			}
+			else
+			{
+				cout << "Message not delivered" << endl;
+			}
 		}
 		break;
 		case 3:
@@ -64,7 +76,7 @@ void CLIBaseApp::signIn()
 		}
 		break;
 		default:
-			cout << "Некорректный ввод" << endl;
+			cout << "Invalid input" << endl;
 			break;
 		}
 	} while (true);
@@ -78,72 +90,24 @@ void CLIBaseApp::signUp()
 	CLIprivataUserData cliPrivareData;
 
 	PrivateUserData privateUserData;
-	//записываем временно данные по пользователю 
+
 	privateUserData.setName(cliPrivareData.writeTempName());
 	privateUserData.setLogin(cliPrivareData.writeTempLogin());
 	privateUserData.setPassword(cliPrivareData.writeTempPassword());
 
 	_baseApp->addUser(privateUserData);
+	//write new user to file
+	_baseApp->writeRegUserToFile(privateUserData);
 
-	UserData* userData = _baseApp->authUser(privateUserData);;
+	this->signIn();
 
-	CLI* cli = &cliBaseApp;
-
-	while (true)
-	{
-		cli->help();
-
-		unsigned int choice{};
-		cin >> choice;
-		cin.ignore(32767, '\n');
-		if (choice == 0) { break; }
-		switch (choice)
-		{
-		case 0:
-			break;
-		case 1:
-			userData->printMessage();
-			break;
-		case 2:
-		{
-			CLIprivataUserData cliPrivateUserData;
-			string tempLogin = cliPrivateUserData.writeTempLogin();
-
-			CLImessage cliMessage;
-			string tempMessage = cliMessage.writeTempMessage();;
-
-			if (!_baseApp->sentMessage(tempLogin, tempMessage))
-			{
-				cout << "Сообщение доставленно" << endl;
-			}
-			else
-			{
-				cout << "Сообщение не доставленно" << endl;
-			}
-		}
-		break;
-		case 3:
-		{
-			CLImessage cliMessage;
-
-			string tempMessage = cliMessage.writeTempMessage();;
-
-			_baseApp->sentMessageToAll(tempMessage);
-		}
-		break;
-		default:
-			cout << "Некорректный ввод" << endl;
-			break;
-		}
-	}
 }
 
 void CLIBaseApp::help()
 {
-	cout << "1-> получить смс" << endl;
-	cout << "2-> отправить пользователю" << endl;
-	cout << "3-> отправить всем пользователям" << endl;
-	cout << "0-> выйти из учетной записи" << endl;
+	cout << "To terminate the program 0 " << endl;
+	cout << "Sign in 1" << endl;
+	cout << "Sign up 2" << endl;
 }
 
 

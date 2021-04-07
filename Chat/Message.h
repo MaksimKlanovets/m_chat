@@ -2,6 +2,7 @@
 #include <string>
 #include <ctime>
 using namespace std;
+#pragma warning(disable: 4996)
 class Message
 {
 public:
@@ -10,11 +11,15 @@ public:
 
 	const string getMessage() const;
 	const string getLogin() const;
-	const char* getTime() const;
+	const tm &getTime() const;
+
+	void setLogin(string &login);
+	void setMessage(string& message);
+	void setDt(tm &dt);
+
 
 private:
 	pair<string, string> _data;
-	char* _dt;
-	std::string _message;
+	std::tm*  _dt;
 };
 

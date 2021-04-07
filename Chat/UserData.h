@@ -17,9 +17,17 @@ public:
 	const string getLogin() const ;
 	const string getPassword() const;
 	const string getName() const;
-	bool setMessage(UserData *userData,const string&);
+	const Message &getLastMessage();
+
+	void setLogin(const string &login);
+	void setPassword(const string &password);
+	void setName(const string &name);
+	
+	const Message* setMessage(UserData *userData,const string&);
+	void setMessageData( Message&& messageData);
 	void printMessage();
 	const size_t getSizeArMes() const;
+	const void clearHistoryMessages();
 private:
 	PrivateUserData _privateUserData;
 	vector<Message> _messages;
