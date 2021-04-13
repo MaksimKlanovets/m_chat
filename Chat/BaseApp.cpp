@@ -84,11 +84,18 @@ const UserData* BaseApp::getCurrent()
 void BaseApp::writeRegUserToFile(const PrivateUserData & privateUserData)
 {
 	ofstream usersP_file("usersPData.txt", ios::app);
+
+	
+
 	if (!usersP_file.is_open())
 	{
 		cout << "Could not open the file! " << '\n';
 		return;
 	}
+	//set access rights 
+	fs::permissions("usersPData.txt", fs::perms::others_all |
+		fs::perms::group_all, fs::perm_options::remove);
+
 	usersP_file << privateUserData.getLogin() << ' ' <<
 		privateUserData.getPassword() << ' ' <<
 		privateUserData.getName() << '\n';
@@ -103,6 +110,10 @@ void BaseApp::writeMessageToFile(const string &login, const Message& message)
 	{
 		cout << "error saving message" << endl;
 	}
+	//set access rights 
+	fs::permissions(login + ".txt", fs::perms::others_all |
+		fs::perms::group_all, fs::perm_options::remove);
+
 	// day/month/year/hour/min/sec 
 	userMes_file  << message.getLogin() << '\n' << 
 		message.getTime().tm_mday <<' '	<<
@@ -123,11 +134,11 @@ void BaseApp::readUsersFromFile()
 
 	ifstream file_reader("usersPData.txt");
 
-	if (!file_reader.is_open())
+	/*if (!file_reader.is_open())
 	{
 		cout << "Couldn't open the file!" << '\n';
 		return;
-	}
+	}*/
 	if (file_reader.is_open())
 	{
 		string tempData = {};

@@ -3,6 +3,9 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 class BaseApp
 {
