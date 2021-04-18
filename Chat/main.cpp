@@ -1,7 +1,9 @@
-#include <iostream>
+
 #if defined(_WIN32) || defined(WIN64)
 #include <windows.h>
 #include <stdio.h>
+#include <iostream>
+using namespace std;
 #define PLATFORM_NAME "Windows" // Windows 
 #define LONG NTSTATUS  * PNTSTATUS
 #define STATUS_SUCCESS (0x00000000)
@@ -27,27 +29,27 @@ RTL_OSVERSIONINFOW GetRealOSVersion() {
 OSVERSIONINFOW ow = GetRealOSVersion();
 
 #elif defined(__linux__)
-// Debian, Ubuntu, Gentoo, Fedora, openSUSE, RedHat, Centos и другие
+ // Debian, Ubuntu, Gentoo, Fedora, openSUSE, RedHat, Centos Рё РґСЂСѓРіРёРµ
 #define PLATFORM_NAME "linux"
-#include <sys/utsname.h> // Для uname()
-
+#include <sys/utsname.h> // Р”Р»СЏ uname()
+#include <iostream>
+using namespace std;
 bool printLinux()
 {
-	utsname utsname;
-	uname(&utsname);
-	cout << "OS name: " << utsname.sysname << endl;
-	cout << "Host name: " << utsname.nodename << endl;
-	cout << "OS release: " << utsname.release << endl;
-	cout << "OS version: " << utsname.version << endl;
-	cout << "Architecture: " << utsname.machine << endl <<
-		endl;
-	return true;
+utsname utsname;
+uname(&utsname);
+cout << "OS name: " << utsname.sysname << endl;
+cout << "Host name: " << utsname.nodename << endl;
+cout << "OS release: " << utsname.release << endl;
+cout << "OS version: " << utsname.version << endl;
+cout << "Architecture: " << utsname.machine << endl <<
+endl;
+return true;
 }
-bool lin = printLinux();
+bool lin =printLinux();
 #elif
 cout << "Your OS don't detected, behavior is not definite" << endl;
 #endif
-
 
 #include "baseApp.h"
 #include "cli.h"
@@ -55,9 +57,10 @@ cout << "Your OS don't detected, behavior is not definite" << endl;
 #include <ctime>
 
 
-int main()
+auto main()->int
 {
 
+	setlocale(LC_ALL, "ru");
 	//singelton
 	BaseApp *baseApp = BaseApp::instance();
 	//read private data from file
@@ -70,8 +73,8 @@ int main()
 	do
 	{
 		cli->help();
-		
-				unsigned int choice = {};
+				
+		unsigned int choice = {};
 		cin >> choice;
 		cin.ignore(32767, '\n');
 		if (choice == 0) { break; }

@@ -134,11 +134,11 @@ void BaseApp::readUsersFromFile()
 
 	ifstream file_reader("usersPData.txt");
 
-	/*if (!file_reader.is_open())
+	if (!file_reader.is_open())
 	{
 		cout << "Couldn't open the file!" << '\n';
 		return;
-	}*/
+	}
 	if (file_reader.is_open())
 	{
 		string tempData = {};

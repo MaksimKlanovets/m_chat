@@ -99,6 +99,8 @@ void CLIBaseApp::signUp()
 	//write new user to file
 	_baseApp->writeRegUserToFile(privateUserData);
 
+	this->signIn();
+
 }
 
 void CLIBaseApp::help()
