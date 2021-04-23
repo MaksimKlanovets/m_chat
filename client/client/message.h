@@ -1,25 +1,34 @@
 #pragma once
 #include <string>
 #include <ctime>
-using namespace std;
+
 #pragma warning(disable: 4996)
 class Message
 {
 public:
 	Message();
-	Message(const string& ,const string&);
+	Message(
+		const std::string& ,
+		const std::string&
+	);
 
-	const string getMessage() const;
-	const string getLogin() const;
+	const std::string getMessage() const;
+	const std::string getLogin() const;
 	const tm &getTime() const;
 
-	void setLogin(string &login);
-	void setMessage(string& message);
-	void setDt(tm &dt);
+	void setLogin(
+		std::string &login
+	);
+	void setMessage(
+		std::string& message
+	);
+	void setDt(
+		tm &dt
+	);
 
 
 private:
-	pair<string, string> _data;
+	std::pair<std::string, std::string> _data;
 	std::tm*  _dt;
 };
 

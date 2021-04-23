@@ -1,9 +1,12 @@
-
+#include "baseApp.h"
+#include "cli.h"
+#include "cliBaseApp.h"
+#include <ctime>
 #if defined(_WIN32) || defined(WIN64)
 #include <windows.h>
 #include <stdio.h>
-#include <iostream>
-using namespace std;
+
+
 #define PLATFORM_NAME "Windows" // Windows 
 #define LONG NTSTATUS  * PNTSTATUS
 #define STATUS_SUCCESS (0x00000000)
@@ -51,10 +54,7 @@ bool lin =printLinux();
 cout << "Your OS don't detected, behavior is not definite" << endl;
 #endif
 
-#include "baseApp.h"
-#include "cli.h"
-#include "cliBaseApp.h"
-#include <ctime>
+
 
 
 auto main()->int
@@ -75,8 +75,8 @@ auto main()->int
 		cli->help();
 				
 		unsigned int choice = {};
-		cin >> choice;
-		cin.ignore(32767, '\n');
+		std::cin >> choice;
+		std::cin.ignore(32767, '\n');
 		if (choice == 0) { break; }
 		try
 		{
@@ -93,13 +93,13 @@ auto main()->int
 				break;
 			}
 			default:
-				cout << "wrong input" << endl;
+				std::cout << "wrong input" << std::endl;
 				break;
 			}
 		}
 		catch (const char *ex)
 		{
-			cout << ex << endl;
+			std::cout << ex << std::endl;
 		}
 	
 	} while (true);

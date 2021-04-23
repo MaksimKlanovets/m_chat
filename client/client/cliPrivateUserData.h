@@ -7,9 +7,9 @@ public:
 	CLIprivataUserData();
 
 	void help()override;
-	const string writeTempName();
-	const string writeTempLogin();
-	const string writeTempPassword();
+	const std::string writeTempName();
+	const std::string writeTempLogin();
+	const std::string writeTempPassword();
 private:
 	
 };
