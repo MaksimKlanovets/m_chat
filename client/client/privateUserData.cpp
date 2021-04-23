@@ -6,19 +6,26 @@ PrivateUserData::PrivateUserData()
 	_pData = {};
 }
 
-PrivateUserData::PrivateUserData(const string &login,const  string& password):PrivateUserData()
+PrivateUserData::PrivateUserData(const std::string &login,
+	const  std::string& password):PrivateUserData()
 {
 	_pData.first = login;
 	_pData.second = password;
 }
 
-PrivateUserData::PrivateUserData(const string &name, const string &login, const string &password)
-	:PrivateUserData(login,password)
+PrivateUserData::PrivateUserData(
+	const std::string &name,
+	const std::string &login, 
+	const std::string &password)
+	:PrivateUserData(login,password
+	)
 {
 	_name = name;
 }
 
-PrivateUserData& PrivateUserData::operator=(const PrivateUserData&copyObj)
+PrivateUserData& PrivateUserData::operator=(
+	const PrivateUserData&copyObj
+	)
 {
 	if (this == &copyObj)
 		return *this;
@@ -29,32 +36,38 @@ PrivateUserData& PrivateUserData::operator=(const PrivateUserData&copyObj)
 	return *this;
 }
 
-const string PrivateUserData::getName() const
+const std::string PrivateUserData::getName() const
 {
 	return _name;
 }
 
-const string PrivateUserData::getLogin() const
+const std::string PrivateUserData::getLogin() const
 {
 	return _pData.first;
 }
 
-const string PrivateUserData::getPassword() const
+const std::string PrivateUserData::getPassword() const
 {
 	return _pData.second;
 }
 
-void PrivateUserData::setName(const string& name)
+void PrivateUserData::setName(
+	const std::string& name
+)
 {
 	_name = name;
 }
 
-void PrivateUserData::setLogin(const string& login)
+void PrivateUserData::setLogin(
+	const std::string& login
+)
 {
 	_pData.first = login;
 }
 
-void PrivateUserData::setPassword(const string& password)
+void PrivateUserData::setPassword(
+	const std::string& password
+)
 {
 	_pData.second = password;
 }

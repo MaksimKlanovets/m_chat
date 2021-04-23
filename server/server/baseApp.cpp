@@ -216,6 +216,7 @@ void BaseApp::sentMessageToAll(const string &message)
 
 BaseApp::BaseApp()
 {
+
 }
 
 BaseApp& BaseApp::operator=(const BaseApp&)

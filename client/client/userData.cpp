@@ -23,17 +23,17 @@ UserData::UserData( PrivateUserData const &privateUserData)
 	_privateUserData = privateUserData;
 }
 
-const string UserData::getLogin()const
+const std::string UserData::getLogin()const
 {
 	return _privateUserData.getLogin();
 }
 
-const string UserData::getPassword()const
+const std::string UserData::getPassword()const
 {
 	return _privateUserData.getPassword();
 }
 
-const string UserData::getName() const
+const std::string UserData::getName() const
 {
 	return _privateUserData.getName();
 }
@@ -45,22 +45,22 @@ const Message& UserData::getLastMessage()
 
 
 
-void UserData::setLogin(const string& login)
+void UserData::setLogin(const std::string& login)
 {
 	_privateUserData.setLogin(login);
 }
 
-void UserData::setPassword(const string& password)
+void UserData::setPassword(const std::string& password)
 {
 	_privateUserData.setPassword(password);
 }
 
-void UserData::setName(const string& name)
+void UserData::setName(const std::string& name)
 {
 	_privateUserData.setName(name);
 }
 
- const Message* UserData::setMessage(UserData *userData, const string &message)
+ const Message* UserData::setMessage(UserData *userData, const std::string &message)
 {
 	  Message mes(userData->getLogin(), message);
 	_messages.push_back(mes);
@@ -79,16 +79,16 @@ void UserData::printMessage()
 	for (size_t i = 0; i < _messages.size(); i++)
 	{
 		
-		cout <<  "User "<< _messages[i].getLogin() << ' ';
+		std::cout <<  "User "<< _messages[i].getLogin() << ' ';
 		// day/month/year/hour/min/sec 
-			cout<< _messages[i].getTime().tm_mday << '.' <<
+		std::cout<< _messages[i].getTime().tm_mday << '.' <<
 				_messages[i].getTime().tm_mon  << '.' <<
 				_messages[i].getTime().tm_year <<
 			' ' << _messages[i].getTime().tm_hour <<
 			':' << _messages[i].getTime().tm_min <<
 			':' << _messages[i].getTime().tm_sec << '\n';
 
-		cout << _messages[i].getMessage() << endl << endl;
+			std::cout << _messages[i].getMessage() << std::endl << std::endl;
 	}
 	
 }

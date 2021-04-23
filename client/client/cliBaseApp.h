@@ -1,7 +1,9 @@
 #pragma once
+//if define Windows 
+
 #include "baseApp.h"
 #include "cli.h"
-using namespace std;
+
 class CLIBaseApp:public CLI
 {
 public:

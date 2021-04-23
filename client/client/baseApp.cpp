@@ -1,5 +1,6 @@
 #include "baseApp.h"
-#include <iostream>
+
+
 
 BaseApp* BaseApp::_instance = 0;
 BaseApp* BaseApp::instance()
@@ -11,7 +12,9 @@ BaseApp* BaseApp::instance()
 	return _instance;
 }
 
-void BaseApp::addUser(UserData userData)
+void BaseApp::addUser(
+	UserData userData
+	)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
@@ -26,7 +29,9 @@ void BaseApp::addUser(UserData userData)
 
 }
 
- UserData* BaseApp::authUser( UserData userData)
+ UserData* BaseApp::authUser( 
+	 UserData userData
+	)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
@@ -42,7 +47,10 @@ void BaseApp::addUser(UserData userData)
 	throw "Login or password error";
 }
 
-const Message *BaseApp::sentMessage(const string &login,const string &message)
+const Message *BaseApp::sentMessage(
+	const std::string &login,
+	const std::string &message
+	)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
@@ -63,7 +71,9 @@ const Message *BaseApp::sentMessage(const string &login,const string &message)
 	return nullptr;
 }
 
-bool BaseApp::isLoginAuth(const string &login)
+bool BaseApp::isLoginAuth(
+	const std::string &login
+)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
@@ -81,15 +91,17 @@ const UserData* BaseApp::getCurrent()
 	return _current;
 }
 
-void BaseApp::writeRegUserToFile(const PrivateUserData & privateUserData)
+void BaseApp::writeRegUserToFile(
+	const PrivateUserData & privateUserData
+	)
 {
-	ofstream usersP_file("usersPData.txt", ios::app);
+	std::ofstream usersP_file("usersPData.txt", std::ios::app);
 
 	
 
 	if (!usersP_file.is_open())
 	{
-		cout << "Could not open the file! " << '\n';
+		std::cout << "Could not open the file! " << '\n';
 		return;
 	}
 	//set access rights 
@@ -102,13 +114,16 @@ void BaseApp::writeRegUserToFile(const PrivateUserData & privateUserData)
 	usersP_file.close();
 }
 
-void BaseApp::writeMessageToFile(const string &login, const Message& message)
+void BaseApp::writeMessageToFile(
+	const std::string &login,
+	const Message& message
+	)
 {
 	
-	ofstream userMes_file(login + ".txt", ios::app);
+	std::ofstream userMes_file(login + ".txt", std::ios::app);
 	if (!userMes_file.is_open())
 	{
-		cout << "error saving message" << endl;
+		std::cout << "error saving message" << std::endl;
 	}
 	//set access rights 
 	fs::permissions(login + ".txt", fs::perms::others_all |
@@ -132,20 +147,20 @@ void BaseApp::readUsersFromFile()
 {
 	BaseApp* baseApp = BaseApp::instance();
 
-	ifstream file_reader("usersPData.txt");
+	std::ifstream file_reader("usersPData.txt");
 
 	if (!file_reader.is_open())
 	{
-		cout << "Couldn't open the file!" << '\n';
+		std::cout << "Couldn't open the file!" << '\n';
 		return;
 	}
 	if (file_reader.is_open())
 	{
-		string tempData = {};
+		std::string tempData = {};
 
-		string name = {};
-		string login = {};
-		string passw = {};
+		std::string name = {};
+		std::string login = {};
+		std::string passw = {};
 
 		char a = {};
 		int point = 0;
@@ -169,15 +184,15 @@ void BaseApp::readHistoryMes()
 
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
-		string log = _userData[i].getLogin();
-		ifstream file_reader(log+".txt");
+		std::string log = _userData[i].getLogin();
+		std::ifstream file_reader(log+".txt");
 
 		if (!file_reader.is_open())
 		{
 			continue;
 		}
 		char a = {};
-		string tempData = {};
+		std::string tempData = {};
 		int point = 0;
 		while (getline(file_reader, tempData))
 		{
@@ -199,14 +214,16 @@ void BaseApp::readHistoryMes()
 		   m.setMessage(tempData);
 
 		   //moving object
-		   _userData[i].setMessageData(move(m));
+		   _userData[i].setMessageData(std::move(m));
 		   
 		}
 		file_reader.close();
 	}
 }
 
-void BaseApp::sentMessageToAll(const string &message)
+void BaseApp::sentMessageToAll(
+	const std::string &message
+	)
 {
 	for (size_t i = 0; i < _userData.size(); i++)
 	{
@@ -218,7 +235,9 @@ BaseApp::BaseApp()
 {
 }
 
-BaseApp& BaseApp::operator=(const BaseApp&)
+BaseApp& BaseApp::operator=(
+	const BaseApp&
+	)
 {
 	return *this;
 }

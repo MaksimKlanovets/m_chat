@@ -3,39 +3,39 @@
 CLIprivataUserData::CLIprivataUserData()
 {
 }
-const string CLIprivataUserData::writeTempName()
+const std::string CLIprivataUserData::writeTempName()
 {
-	string n{};
-	cout << "Enter your name" << endl;
-	cin >> n;
-	cin.ignore(32767, '\n');
+	std::string n{};
+	std::cout << "Enter your name" << std::endl;
+	std::cin >> n;
+	std::cin.ignore(32767, '\n');
 	return n;
 }
 
-const string CLIprivataUserData::writeTempLogin()
+const std::string CLIprivataUserData::writeTempLogin()
 {
-	string l{};
-	cout << "Enter login" << endl;
-	cin >> l;
-	cin.ignore(32767, '\n');
+	std::string l{};
+	std::cout << "Enter login" << std::endl;
+	std::cin >> l;
+	std::cin.ignore(32767, '\n');
 	return l;
 }
 
-const string CLIprivataUserData::writeTempPassword()
+const std::string CLIprivataUserData::writeTempPassword()
 {
-	string p{};
-	cout << "Enter password" << endl;
-	cin >> p;
-	cin.ignore(32767, '\n');
+	std::string p{};
+	std::cout << "Enter password" << std::endl;
+	std::cin >> p;
+	std::cin.ignore(32767, '\n');
 	return p;
 }
 
 void CLIprivataUserData::help()
 {
-	cout << "1-> Receive messages" << endl;
-	cout << "2-> Send a message to the user" << endl;
-	cout << "3-> Send to all users" << endl;
-	cout << "4-> Clear messages history" << endl;
-	cout << "0-> Log out of account" << endl;
+	std::cout << "1-> Receive messages" << std::endl;
+	std::cout << "2-> Send a message to the user" << std::endl;
+	std::cout << "3-> Send to all users" << std::endl;
+	std::cout << "4-> Clear messages history" << std::endl;
+	std::cout << "0-> Log out of account" << std::endl;
 
 }

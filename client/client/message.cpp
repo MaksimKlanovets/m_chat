@@ -9,7 +9,10 @@ Message::Message()
 }
 
 
-Message::Message(const string& login,const string &message)
+Message::Message(
+	const std::string& login,
+	const std::string &message
+	)
 {
 	
 	_data.first = login;
@@ -21,12 +24,12 @@ Message::Message(const string& login,const string &message)
 	
 }
 
-const string Message::getMessage() const
+const std::string Message::getMessage() const
 {
 	return _data.second;
 }
 
-const string Message::getLogin() const
+const std::string Message::getLogin() const
 {
 	return _data.first;
 }
@@ -36,17 +39,23 @@ const tm &Message::getTime()const
 	return *_dt;
 }
 
-void Message::setLogin(string& login)
+void Message::setLogin(
+	std::string& login
+	)
 {
 	_data.first = login;
 }
 
-void Message::setMessage(string& message)
+void Message::setMessage(
+	std::string& message
+	)
 {
 	_data.second = message;
 }
 
-void Message::setDt(tm &dt)
+void Message::setDt(
+	tm &dt
+)
 {
 	_dt->tm_wday = dt.tm_wday;
 	_dt->tm_mon = dt.tm_mon + 1;
